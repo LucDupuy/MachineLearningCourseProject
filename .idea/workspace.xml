@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="init commit">
+    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Playing with a dataset to learn how tensorflow works in terms of binary image classification">
+      <change afterPath="$PROJECT_DIR$/src/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Main Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Main Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
@@ -46,7 +48,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -106,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602612465548</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Playing with a dataset to learn how tensorflow works in terms of binary image classification">
+      <created>1602615355543</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1602615355543</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -123,7 +132,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
+    <MESSAGE value="Playing with a dataset to learn how tensorflow works in terms of binary image classification" />
+    <option name="LAST_COMMIT_MESSAGE" value="Playing with a dataset to learn how tensorflow works in terms of binary image classification" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2974" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602611655917">
@@ -135,25 +145,26 @@
     </state>
     <state x="987" y="370" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602612224988" />
     <state x="3300" y="484" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1602611766346" />
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1602615116320">
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1602618214928">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602615116320" />
-    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1602615116319">
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602618214928" />
+    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1602618214928">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602615116319" />
-    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1602615116319">
+    <state width="2539" height="401" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602618214928" />
+    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1602618214928">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602615116319" />
-    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1602615116319">
+    <state width="2539" height="401" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602618214928" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1602618214928">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602615116319" />
-    <state x="3021" y="374" key="SettingsEditor" timestamp="1602611671855">
-      <screen x="2560" y="209" width="1920" height="1040" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602618214928" />
+    <state x="615" y="222" key="SettingsEditor" timestamp="1602617949882">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state x="615" y="222" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602617949882" />
     <state x="3021" y="374" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1602611671855" />
     <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1602614034104">
       <screen x="0" y="0" width="2560" height="1400" />
