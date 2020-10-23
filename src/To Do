@@ -1,0 +1,10 @@
+1. Randomize order of data
+2. Split data into training, validation and test set (70%, 10%, 20%)
+3. Down-sample images
+4. Take a look at PyTorch for CNNs: https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html
+5. Fix up the code to suit our specific needs
+6. Train the model
+7. Validate model?
+8. Test model
+9. Make a report
+10. Make a video

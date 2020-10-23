@@ -49,3 +49,6 @@ print(prediction)
 
 # Cite libraries (ok to use)
 # Pytorch
+
+
+#ffmpeg -i input -vf scale=px:px out.jpg

@@ -19,10 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="The model is trained, and I have made notes about what stuff does and how to use the model to predict a label for an image.">
+    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Added a note at the bottom of main regarding things talked about with TA on Friday 23">
+      <change afterPath="$PROJECT_DIR$/src/To Do" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602620636146</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added a note at the bottom of main regarding things talked about with TA on Friday 23">
+      <created>1603484624786</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603484624786</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,17 +155,18 @@
     <MESSAGE value="Playing with a dataset to learn how tensorflow works in terms of binary image classification" />
     <MESSAGE value="Trained a model using the UofT dataset just to get a feel for how it works" />
     <MESSAGE value="The model is trained, and I have made notes about what stuff does and how to use the model to predict a label for an image." />
-    <option name="LAST_COMMIT_MESSAGE" value="The model is trained, and I have made notes about what stuff does and how to use the model to predict a label for an image." />
+    <MESSAGE value="Added a note at the bottom of main regarding things talked about with TA on Friday 23" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a note at the bottom of main regarding things talked about with TA on Friday 23" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2974" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602611655917">
       <screen x="2560" y="209" width="1920" height="1040" />
     </state>
     <state x="2974" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1602611655917" />
-    <state x="1005" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602618573405">
+    <state x="1005" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603486808373">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1005" y="502" key="#com.intellij.fileTypes.FileTypeChooser/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602618573405" />
+    <state x="1005" y="502" key="#com.intellij.fileTypes.FileTypeChooser/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1603486808373" />
     <state x="987" y="370" key="FileChooserDialogImpl" timestamp="1602884175626">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
