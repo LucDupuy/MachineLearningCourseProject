@@ -8,14 +8,14 @@ x_train, x_test = x_train / 255, x_test / 255
 classification_arr = ["Plane", "Car", "Bird", "Cat", "Deer", "Dog", "Frog", "Horse", "Ship", "Truck"]
 
 # Building and training the Neural Network
-#train.train_model(x_train, y_train, x_test, y_test)
+# train.train_model(x_train, y_train, x_test, y_test)
 
 
 
 
 
 
-f"""
+"""
 
 Normalize the data to between 0 and 1: Take the images (x_train and x_test) and divide by 255 (max RGB value)
 
@@ -45,3 +45,7 @@ index = np.argmax(prediction)
 print(prediction)
 
 """
+
+
+# Cite libraries (ok to use)
+# Pytorch
