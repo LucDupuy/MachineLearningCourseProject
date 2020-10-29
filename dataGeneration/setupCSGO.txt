@@ -1,0 +1,57 @@
+For this assignment we have chosen to use "Counter Strike: Global Offensive"(CSGO) as the game for our data generation.
+
+The following is instructions for setting up the game to be recorded. To skip to the steps for generating data scroll down to the long line of dashes.
+
+When you first boot into the game, go into the in game settings menu, and turn on "Developer Console". You only need to do this once
+
+Click "Play CSGO", select "Practice With Bots" and select deathmatch.
+Pick a map of your choice that you would like to train your ML algorithm for.
+
+Click go and wait for the game to load.
+
+Press "~" (the button on the top left of you keyboard) to open the console and input
+the following command:
+
+mp_roundtime_defuse 60;mp_roundtime_hostage 60;mp_roundtime 60;mp_restartgame 1
+
+This will increase the length of the game significantly so as to not interrupt
+the recording. next enter the following list of commands:
+
+sv_cheats 1
+god
+bot_kick
+bot_add_t
+cl_drawhud 0
+r_drawviewmodel 0
+sv_infinite_ammo 1
+
+Here is what those commands do respectively
+
+1. enables cheats(some commands are considered cheats)
+2. disables player death, so that recording is not interrupted
+3. removes all bots
+4. adds one bot to the enemy(terrorists) team. If you want to train your
+bot against counter terrorists use the following commands instead:
+bot_add_ct
+5. removes the hud, so as to only see the game
+6. removes the viewmodel to further clear up the screen
+
+These are the settings we used although some changes could be made, they
+may have cause the machine learning algorithm to work better or worse.
+
+Note: the make sure to change the ingame resolution/recording resolution so you dont later have to convert the video to a lower quality. Lowering the resolution will make it take less time to train a machine learning algorithm. We used 852x480 as it was the lowest setting availible to CSGO and then set OBS to further reduce the resolution to 424x240.
+
+Once all of this is set up here is how to create the data:
+
+--------------------------------------------------------------------------
+
+set OBS(screen recording software to record) to record the game
+
+play the game for ~10 minutes (at 120fps this will generate ~86000 images to train)
+
+once the recording is complete, open the video using MPV and mark down the timestamps of when enemies are on screen and when they aren't into a "timestamp.txt" file.
+(see the "generateDataset.sh" script to see how to format this timestamp file)
+
+plug the video and the timestamp file into the script and when the script completes then your dataset has been generated!
+
+To create a dataset from a ~10 minute clip(including the recording of the clip) takes roughly 30-60 minutes.
