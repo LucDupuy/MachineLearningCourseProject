@@ -32,3 +32,10 @@ print(prediction)
 
 
 # ffmpeg -i input -vf scale=px:px out.jpg
+
+
+
+Force CPU
+**********
+import os
+os.environ["CUDA_VISIBLE_DEVICES"]="-1"
