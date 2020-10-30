@@ -19,10 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Added a note at the bottom of main regarding things talked about with TA on Friday 23, as well as a text document of things to do">
-      <change afterPath="$PROJECT_DIR$/src/gpuTest" afterDir="false" />
+    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="gpuTest is just me playing around with running code on GPU">
+      <change afterPath="$PROJECT_DIR$/src/Notes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/car.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Main Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Main Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gpuTest" beforeDir="false" afterPath="$PROJECT_DIR$/src/gpuTest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image_classifier.model" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,10 +52,18 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Tutorial Images" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.gpuTest">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Luc\Documents\CPS 803\Main Project\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Luc\Documents\CPS 803\Main Project\src\Tutorial Images" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
     <configuration name="gpuTest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Main Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -94,8 +108,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.gpuTest" />
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.gpuTest" />
       </list>
     </recent_temporary>
   </component>
@@ -164,8 +178,25 @@
       <option name="project" value="LOCAL" />
       <updated>1603486983699</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="gpuTest is just me playing around with running code on GPU">
+      <created>1603488052358</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1603488052358</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -186,51 +217,65 @@
     <MESSAGE value="The model is trained, and I have made notes about what stuff does and how to use the model to predict a label for an image." />
     <MESSAGE value="Added a note at the bottom of main regarding things talked about with TA on Friday 23" />
     <MESSAGE value="Added a note at the bottom of main regarding things talked about with TA on Friday 23, as well as a text document of things to do" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a note at the bottom of main regarding things talked about with TA on Friday 23, as well as a text document of things to do" />
+    <MESSAGE value="gpuTest is just me playing around with running code on GPU" />
+    <option name="LAST_COMMIT_MESSAGE" value="gpuTest is just me playing around with running code on GPU" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2974" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602611655917">
       <screen x="2560" y="209" width="1920" height="1040" />
     </state>
     <state x="2974" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1602611655917" />
-    <state x="1005" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603487725482">
+    <state x="3314" y="582" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604080468440">
+      <screen x="2560" y="209" width="1920" height="1040" />
+    </state>
+    <state x="1005" y="502" key="#com.intellij.fileTypes.FileTypeChooser/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604071841078" />
+    <state x="3314" y="582" key="#com.intellij.fileTypes.FileTypeChooser/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604080468440" />
+    <state x="987" y="370" key="FileChooserDialogImpl" timestamp="1604070201939">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1005" y="502" key="#com.intellij.fileTypes.FileTypeChooser/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1603487725482" />
-    <state x="987" y="370" key="FileChooserDialogImpl" timestamp="1603487069288">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="987" y="370" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1603487069288" />
+    <state x="987" y="370" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604070201939" />
     <state x="3300" y="484" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1602611766346" />
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1603487996906">
+    <state width="2539" height="300" key="GridCell.Tab.0.bottom" timestamp="1604083055074">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1603487996906" />
-    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1603487996905">
+    <state width="2539" height="300" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083055074" />
+    <state width="1899" height="300" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604081311636" />
+    <state width="2539" height="300" key="GridCell.Tab.0.center" timestamp="1604083055074">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1603487996905" />
-    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1603487996905">
+    <state width="2539" height="300" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083055074" />
+    <state width="1899" height="300" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604081311636" />
+    <state width="2539" height="300" key="GridCell.Tab.0.left" timestamp="1604083055074">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1603487996905" />
-    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1603487996906">
+    <state width="2539" height="300" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083055074" />
+    <state width="1899" height="300" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604081311635" />
+    <state width="2539" height="300" key="GridCell.Tab.0.right" timestamp="1604083055074">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1603487996906" />
-    <state x="615" y="222" key="SettingsEditor" timestamp="1602617949882">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="2539" height="300" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083055074" />
+    <state width="1899" height="300" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604081311636" />
+    <state x="3021" y="374" key="SettingsEditor" timestamp="1604078245814">
+      <screen x="2560" y="209" width="1920" height="1040" />
     </state>
     <state x="615" y="222" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602617949882" />
-    <state x="3021" y="374" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1602611671855" />
+    <state x="3021" y="374" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604078245814" />
     <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603486992585">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1603486992585" />
-    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603486970618">
+    <state x="886" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604067881924">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1603486970618" />
+    <state x="886" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604067881924" />
+    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604083142272">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083142272" />
+    <state x="2862" y="187" width="1936" height="958" maximized="true" key="dock-window-1" timestamp="1603488543077">
+      <screen x="2560" y="209" width="1920" height="1040" />
+    </state>
+    <state x="2862" y="187" width="1936" height="958" maximized="true" key="dock-window-1/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1603488543077" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1602619339019">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
