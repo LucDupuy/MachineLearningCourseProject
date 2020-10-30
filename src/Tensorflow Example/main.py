@@ -2,8 +2,7 @@ import train
 import cv2 as cv
 import matplotlib.pyplot as plt
 import numpy as np
-from timeit import default_timer as timer
-from tensorflow.keras import datasets, layers, models
+from tensorflow.keras import datasets, models
 
 
 def main():
@@ -13,9 +12,9 @@ def main():
     # Order pre defined by the existing dataset
     classification_arr = ["Plane", "Car", "Bird", "Cat", "Deer", "Dog", "Frog", "Horse", "Ship", "Truck"]
 
-    train_model(x_train, y_train, x_test, y_test)
-    #prediction = predict()
-    #print(f'Prediction is {classification_arr[prediction]}')
+    # train_model(x_train, y_train, x_test, y_test)
+    prediction = predict()
+    print(f'Prediction is {classification_arr[prediction]}')
 
 
 def train_model(x_train, y_train, x_test, y_test):

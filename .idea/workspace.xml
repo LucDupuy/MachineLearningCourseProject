@@ -19,16 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="gpuTest is just me playing around with running code on GPU">
-      <change afterPath="$PROJECT_DIR$/src/Notes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/car.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Main Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Main Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Added a note on how to force Tensorflow to use your CPU as opposed to the GPU">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gpuTest" beforeDir="false" afterPath="$PROJECT_DIR$/src/gpuTest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image_classifier.model" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Notes" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tensorflow Example/Notes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/To Do" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tensorflow Example/To Do" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/car.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tensorflow Example/car.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gpuTest" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tensorflow Example/gpuTest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tensorflow Example/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tensorflow Example/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +55,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Luc\Documents\CPS 803\Main Project\src\Tensorflow Example" />
       <recent name="C:\Users\Luc\Documents\CPS 803\Main Project\src" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -76,7 +75,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/gpuTest" />
+      <option name="SCRIPT_NAME" value="C:\Users\Luc\Documents\CPS 803\Main Project\src\Tensorflow Example\gpuTest" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -97,7 +96,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Luc\Documents\CPS 803\Main Project\src\Tensorflow Example\main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -185,7 +184,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603488052358</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Got Tensorflow to train a model on the GPU. Added a test image and folder, as well as moved notes to a separate folder.&#10;&#10;Organized the main file into functions.&#10;&#10;Don't have the predict function working yet.">
+      <created>1604083222103</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1604083222103</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added a note on how to force Tensorflow to use your CPU as opposed to the GPU">
+      <created>1604083306670</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1604083306670</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -218,7 +231,9 @@
     <MESSAGE value="Added a note at the bottom of main regarding things talked about with TA on Friday 23" />
     <MESSAGE value="Added a note at the bottom of main regarding things talked about with TA on Friday 23, as well as a text document of things to do" />
     <MESSAGE value="gpuTest is just me playing around with running code on GPU" />
-    <option name="LAST_COMMIT_MESSAGE" value="gpuTest is just me playing around with running code on GPU" />
+    <MESSAGE value="Got Tensorflow to train a model on the GPU. Added a test image and folder, as well as moved notes to a separate folder.&#10;&#10;Organized the main file into functions.&#10;&#10;Don't have the predict function working yet." />
+    <MESSAGE value="Added a note on how to force Tensorflow to use your CPU as opposed to the GPU" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a note on how to force Tensorflow to use your CPU as opposed to the GPU" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2974" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602611655917">
@@ -235,39 +250,43 @@
     </state>
     <state x="987" y="370" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604070201939" />
     <state x="3300" y="484" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1602611766346" />
-    <state width="2539" height="300" key="GridCell.Tab.0.bottom" timestamp="1604083055074">
+    <state width="2539" height="300" key="GridCell.Tab.0.bottom" timestamp="1604084126916">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="300" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083055074" />
+    <state width="2539" height="300" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604084126916" />
     <state width="1899" height="300" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604081311636" />
-    <state width="2539" height="300" key="GridCell.Tab.0.center" timestamp="1604083055074">
+    <state width="2539" height="300" key="GridCell.Tab.0.center" timestamp="1604084126916">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="300" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083055074" />
+    <state width="2539" height="300" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604084126916" />
     <state width="1899" height="300" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604081311636" />
-    <state width="2539" height="300" key="GridCell.Tab.0.left" timestamp="1604083055074">
+    <state width="2539" height="300" key="GridCell.Tab.0.left" timestamp="1604084126915">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="300" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083055074" />
+    <state width="2539" height="300" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604084126915" />
     <state width="1899" height="300" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604081311635" />
-    <state width="2539" height="300" key="GridCell.Tab.0.right" timestamp="1604083055074">
+    <state width="2539" height="300" key="GridCell.Tab.0.right" timestamp="1604084126916">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="300" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083055074" />
+    <state width="2539" height="300" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604084126916" />
     <state width="1899" height="300" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604081311636" />
     <state x="3021" y="374" key="SettingsEditor" timestamp="1604078245814">
       <screen x="2560" y="209" width="1920" height="1040" />
     </state>
     <state x="615" y="222" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602617949882" />
     <state x="3021" y="374" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604078245814" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1603486992585">
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604083308759">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1603486992585" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083308759" />
     <state x="886" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604067881924">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="886" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604067881924" />
+    <state x="1078" y="434" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1604083317254">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1078" y="434" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083317254" />
     <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604083142272">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
