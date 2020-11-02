@@ -19,3 +19,9 @@ class Net(nn.Module):
         return x
 
       60160 and 25784 pictures
+
+
+
+
+----------------NUMBERS FOR BATCH SIZE OF 32------------------------
+[batch_size = 32, channels = 16, h=240, w=424]

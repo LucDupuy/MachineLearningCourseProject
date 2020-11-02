@@ -19,15 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Moved everything to a tensorflow folder.">
-      <change afterPath="$PROJECT_DIR$/src/pytorch/CustomDataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pytorch/MakeSpreadsheet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pytorch/Notes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pytorch/gpuTest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pytorch/model.pth" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Main Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Main Project.iml" afterDir="false" />
+    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Began training the model. &#10;CustomDataset.py -&gt; Used to create the spreadsheet with MakeSpreadsheet.py&#10;Notes just has some numbers for me to keep track of if I need to use them again.&#10;Using only the first dataset as it has more than enough photos.&#10;&#10;model.pth is the created model. As of the time that this was committed, a new model was in the process of being trained.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pytorch/cifar_net.pth" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/cifar_net.pth" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pytorch/Notes" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/Notes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pytorch/model.pth" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/model.pth" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pytorch/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pytorch/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/train.py" afterDir="false" />
     </list>
@@ -279,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604088247006</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Began training the model. &#10;CustomDataset.py -&gt; Used to create the spreadsheet with MakeSpreadsheet.py&#10;Notes just has some numbers for me to keep track of if I need to use them again.&#10;Using only the first dataset as it has more than enough photos.&#10;&#10;model.pth is the created model. As of the time that this was committed, a new model was in the process of being trained.">
+      <created>1604298289577</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1604298289577</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -316,7 +318,8 @@
     <MESSAGE value="Got Tensorflow to train a model on the GPU. Added a test image and folder, as well as moved notes to a separate folder.&#10;&#10;Organized the main file into functions.&#10;&#10;Don't have the predict function working yet." />
     <MESSAGE value="Added a note on how to force Tensorflow to use your CPU as opposed to the GPU" />
     <MESSAGE value="Moved everything to a tensorflow folder." />
-    <option name="LAST_COMMIT_MESSAGE" value="Moved everything to a tensorflow folder." />
+    <MESSAGE value="Began training the model. &#10;CustomDataset.py -&gt; Used to create the spreadsheet with MakeSpreadsheet.py&#10;Notes just has some numbers for me to keep track of if I need to use them again.&#10;Using only the first dataset as it has more than enough photos.&#10;&#10;model.pth is the created model. As of the time that this was committed, a new model was in the process of being trained." />
+    <option name="LAST_COMMIT_MESSAGE" value="Began training the model. &#10;CustomDataset.py -&gt; Used to create the spreadsheet with MakeSpreadsheet.py&#10;Notes just has some numbers for me to keep track of if I need to use them again.&#10;Using only the first dataset as it has more than enough photos.&#10;&#10;model.pth is the created model. As of the time that this was committed, a new model was in the process of being trained." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2974" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602611655917">
@@ -333,55 +336,55 @@
     </state>
     <state x="987" y="370" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604070201939" />
     <state x="3300" y="484" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1602611766346" />
-    <state width="2539" height="305" key="GridCell.Tab.0.bottom" timestamp="1604296998333">
+    <state width="2539" height="492" key="GridCell.Tab.0.bottom" timestamp="1604331252284">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2539" height="300" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
-    <state width="2539" height="305" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604296998333" />
+    <state width="2539" height="492" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604331252284" />
     <state width="1899" height="300" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286939950" />
-    <state width="2539" height="305" key="GridCell.Tab.0.center" timestamp="1604296998333">
+    <state width="2539" height="492" key="GridCell.Tab.0.center" timestamp="1604331252283">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2539" height="300" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
-    <state width="2539" height="305" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604296998333" />
+    <state width="2539" height="492" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604331252283" />
     <state width="1899" height="300" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286939950" />
-    <state width="2539" height="305" key="GridCell.Tab.0.left" timestamp="1604296998333">
+    <state width="2539" height="492" key="GridCell.Tab.0.left" timestamp="1604331252283">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2539" height="300" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
-    <state width="2539" height="305" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604296998333" />
+    <state width="2539" height="492" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604331252283" />
     <state width="1899" height="300" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286939950" />
-    <state width="2539" height="305" key="GridCell.Tab.0.right" timestamp="1604296998333">
+    <state width="2539" height="492" key="GridCell.Tab.0.right" timestamp="1604331252284">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2539" height="300" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
-    <state width="2539" height="305" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604296998333" />
+    <state width="2539" height="492" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604331252284" />
     <state width="1899" height="300" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286939950" />
-    <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1604290965147">
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1604331252284">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604290965147" />
-    <state width="2539" height="492" key="GridCell.Tab.1.center" timestamp="1604290965147">
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604331252284" />
+    <state width="2539" height="492" key="GridCell.Tab.1.center" timestamp="1604331252284">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604290965147" />
-    <state width="2539" height="492" key="GridCell.Tab.1.left" timestamp="1604290965147">
+    <state width="2539" height="492" key="GridCell.Tab.1.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604331252284" />
+    <state width="2539" height="492" key="GridCell.Tab.1.left" timestamp="1604331252284">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604290965147" />
-    <state width="2539" height="492" key="GridCell.Tab.1.right" timestamp="1604290965147">
+    <state width="2539" height="492" key="GridCell.Tab.1.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604331252284" />
+    <state width="2539" height="492" key="GridCell.Tab.1.right" timestamp="1604331252284">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="492" key="GridCell.Tab.1.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604290965147" />
+    <state width="2539" height="492" key="GridCell.Tab.1.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604331252284" />
     <state x="615" y="222" key="SettingsEditor" timestamp="1604292730647">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="615" y="222" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604292730647" />
     <state x="3021" y="374" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286782948" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604088248340">
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604298292120">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604088248340" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604298292120" />
     <state x="886" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604067881924">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
