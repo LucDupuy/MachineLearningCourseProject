@@ -19,14 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Added a note on how to force Tensorflow to use your CPU as opposed to the GPU">
+    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Moved everything to a tensorflow folder.">
+      <change afterPath="$PROJECT_DIR$/src/pytorch/CustomDataset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pytorch/MakeSpreadsheet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pytorch/Notes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pytorch/gpuTest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pytorch/model.pth" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Main Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Main Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Notes" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tensorflow Example/Notes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/To Do" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tensorflow Example/To Do" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/car.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tensorflow Example/car.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gpuTest" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tensorflow Example/gpuTest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tensorflow Example/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tensorflow Example/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pytorch/cifar_net.pth" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/cifar_net.pth" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pytorch/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pytorch/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,26 +47,31 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ipikn5q4P0XBo4y3s6SEs9LZ0S" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Tutorial Images" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Luc\Documents\CPS 803\Main Project\src\Tensorflow Example" />
-      <recent name="C:\Users\Luc\Documents\CPS 803\Main Project\src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Luc\Documents\CPS 803\Main Project\src\Tutorial Images" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Luc\Documents\CPS 803\Main Project\src\pytorch\data" />
+      <recent name="C:\Users\Luc\Documents\CPS 803\Main Project\src\Tensorflow Example" />
+      <recent name="C:\Users\Luc\Documents\CPS 803\Main Project\src" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.main">
-    <configuration name="gpuTest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.train">
+    <configuration name="CustomDataset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Main Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -71,11 +79,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/pytorch" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Luc\Documents\CPS 803\Main Project\src\Tensorflow Example\gpuTest" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/pytorch/CustomDataset.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -84,7 +92,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="MakeSpreadsheet" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Main Project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -92,11 +100,74 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/pytorch" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Luc\Documents\CPS 803\Main Project\src\Tensorflow Example\main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/pytorch/MakeSpreadsheet.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="gpuTest (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Main Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/pytorch" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/pytorch/gpuTest.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Main Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/pytorch" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/pytorch/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Main Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/pytorch" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/pytorch/train.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -107,8 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.gpuTest" />
+        <item itemvalue="Python.train" />
+        <item itemvalue="Python.CustomDataset" />
+        <item itemvalue="Python.MakeSpreadsheet" />
+        <item itemvalue="Python.gpuTest (1)" />
+        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -198,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604083306670</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Moved everything to a tensorflow folder.">
+      <created>1604088247006</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1604088247006</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -224,6 +305,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init commit" />
     <MESSAGE value="Playing with a dataset to learn how tensorflow works in terms of binary image classification" />
     <MESSAGE value="Trained a model using the UofT dataset just to get a feel for how it works" />
@@ -233,52 +315,73 @@
     <MESSAGE value="gpuTest is just me playing around with running code on GPU" />
     <MESSAGE value="Got Tensorflow to train a model on the GPU. Added a test image and folder, as well as moved notes to a separate folder.&#10;&#10;Organized the main file into functions.&#10;&#10;Don't have the predict function working yet." />
     <MESSAGE value="Added a note on how to force Tensorflow to use your CPU as opposed to the GPU" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a note on how to force Tensorflow to use your CPU as opposed to the GPU" />
+    <MESSAGE value="Moved everything to a tensorflow folder." />
+    <option name="LAST_COMMIT_MESSAGE" value="Moved everything to a tensorflow folder." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2974" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602611655917">
       <screen x="2560" y="209" width="1920" height="1040" />
     </state>
     <state x="2974" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1602611655917" />
-    <state x="3314" y="582" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604080468440">
-      <screen x="2560" y="209" width="1920" height="1040" />
+    <state x="1005" y="502" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604297530971">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1005" y="502" key="#com.intellij.fileTypes.FileTypeChooser/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604071841078" />
+    <state x="1005" y="502" key="#com.intellij.fileTypes.FileTypeChooser/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604297530971" />
     <state x="3314" y="582" key="#com.intellij.fileTypes.FileTypeChooser/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604080468440" />
     <state x="987" y="370" key="FileChooserDialogImpl" timestamp="1604070201939">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="987" y="370" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604070201939" />
     <state x="3300" y="484" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1602611766346" />
-    <state width="2539" height="300" key="GridCell.Tab.0.bottom" timestamp="1604084126916">
+    <state width="2539" height="305" key="GridCell.Tab.0.bottom" timestamp="1604296998333">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="300" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604084126916" />
-    <state width="1899" height="300" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604081311636" />
-    <state width="2539" height="300" key="GridCell.Tab.0.center" timestamp="1604084126916">
+    <state width="2539" height="300" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
+    <state width="2539" height="305" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604296998333" />
+    <state width="1899" height="300" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286939950" />
+    <state width="2539" height="305" key="GridCell.Tab.0.center" timestamp="1604296998333">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="300" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604084126916" />
-    <state width="1899" height="300" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604081311636" />
-    <state width="2539" height="300" key="GridCell.Tab.0.left" timestamp="1604084126915">
+    <state width="2539" height="300" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
+    <state width="2539" height="305" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604296998333" />
+    <state width="1899" height="300" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286939950" />
+    <state width="2539" height="305" key="GridCell.Tab.0.left" timestamp="1604296998333">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="300" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604084126915" />
-    <state width="1899" height="300" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604081311635" />
-    <state width="2539" height="300" key="GridCell.Tab.0.right" timestamp="1604084126916">
+    <state width="2539" height="300" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
+    <state width="2539" height="305" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604296998333" />
+    <state width="1899" height="300" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286939950" />
+    <state width="2539" height="305" key="GridCell.Tab.0.right" timestamp="1604296998333">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="300" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604084126916" />
-    <state width="1899" height="300" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604081311636" />
-    <state x="3021" y="374" key="SettingsEditor" timestamp="1604078245814">
-      <screen x="2560" y="209" width="1920" height="1040" />
-    </state>
-    <state x="615" y="222" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1602617949882" />
-    <state x="3021" y="374" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604078245814" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604083308759">
+    <state width="2539" height="300" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
+    <state width="2539" height="305" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604296998333" />
+    <state width="1899" height="300" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286939950" />
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom" timestamp="1604290965147">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083308759" />
+    <state width="2539" height="492" key="GridCell.Tab.1.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604290965147" />
+    <state width="2539" height="492" key="GridCell.Tab.1.center" timestamp="1604290965147">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="492" key="GridCell.Tab.1.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604290965147" />
+    <state width="2539" height="492" key="GridCell.Tab.1.left" timestamp="1604290965147">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="492" key="GridCell.Tab.1.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604290965147" />
+    <state width="2539" height="492" key="GridCell.Tab.1.right" timestamp="1604290965147">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2539" height="492" key="GridCell.Tab.1.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604290965147" />
+    <state x="615" y="222" key="SettingsEditor" timestamp="1604292730647">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="615" y="222" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604292730647" />
+    <state x="3021" y="374" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286782948" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1604088248340">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604088248340" />
     <state x="886" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604067881924">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -287,14 +390,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1078" y="434" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083317254" />
-    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604083142272">
+    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1604282251744">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604083142272" />
-    <state x="2862" y="187" width="1936" height="958" maximized="true" key="dock-window-1" timestamp="1603488543077">
+    <state x="1097" y="614" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604282251744" />
+    <state x="2560" y="209" width="1936" height="970" key="dock-window-1" timestamp="1604289350436">
       <screen x="2560" y="209" width="1920" height="1040" />
     </state>
-    <state x="2862" y="187" width="1936" height="958" maximized="true" key="dock-window-1/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1603488543077" />
+    <state x="2560" y="209" width="1936" height="970" key="dock-window-1/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604289350436" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1602619339019">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
