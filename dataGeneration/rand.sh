@@ -1,4 +1,19 @@
 #!/bin/bash
+
+<<COMMENT
+this script will build a randomized subset of the dataset
+place this script into where the "enemy" and "none" directories are
+i.e dataset/rand.sh
+where dataset contains "enemy" and "none" like so:
+dataset/enemy
+dataset/none
+then run the script passing it a number from 1 to 100
+depending on what percent of the dataset you would like to use
+it will create 2 directories named "ranenemy" and "rannone"
+where your randomized dataset resides
+COMMENT
+
+
 mkdir ranenemy
 mkdir rannone
 
