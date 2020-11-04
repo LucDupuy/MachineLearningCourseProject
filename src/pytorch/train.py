@@ -18,36 +18,32 @@ class Net(nn.Module):
         self.conv1 = nn.Conv2d(3, 6, 5)
         self.pool = nn.MaxPool2d(2, 2)
         self.conv2 = nn.Conv2d(6, 16, 5)
-        self.fc1 = nn.Linear(16 * 57 * 103, 120)
+        self.fc1 = nn.Linear(16*57*103, 120)
         self.fc2 = nn.Linear(120, 84)
         self.fc3 = nn.Linear(84, 10)
 
     def forward(self, x):
         x = self.pool(F.relu(self.conv1(x)))
         x = self.pool(F.relu(self.conv2(x)))
-        x = x.view(32, 16 * 57 * 103)
+        x = x.view(16, 16*57*103)
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         x = self.fc3(x)
         return x
 
 
-def main(images_path, train_path, test_path):
-    batch_size = 32
+def main(train_spreadsheet_path, train_images_path):
+    batch_size = 16
     classes = ["enemy", "none"]
 
-    transform = transforms.Compose(
-        [transforms.ToTensor(),
-         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
-
-    train_set = ImportDataset(excel_file='train_set.xlsx', dir=train_path, transform=transforms.ToTensor())
-    test_set = ImportDataset(excel_file='test_set.xlsx', dir=test_path, transform=transforms.ToTensor())
+    train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path, transform=transforms.ToTensor())
 
     trainloader = DataLoader(dataset=train_set, batch_size=batch_size, shuffle=True)
-    testloader = DataLoader(dataset=test_set, batch_size=batch_size, shuffle=True)
+
+    print(train_set.__len__())
 
     train(trainloader, batch_size)
-    # test(testloader, classes)
+
 
 
 def train(trainloader, batch_size):
@@ -62,8 +58,8 @@ def train(trainloader, batch_size):
     optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
     # The TRAINING of the algo
-    for epoch in range(10):  # loop over the dataset multiple times
-        print("Total Iteration Per Epoch: ", 60128 / batch_size)
+    for epoch in range(1):  # loop over the dataset multiple times
+        print("Total Iteration Per Epoch: ", 85936 / batch_size)
         running_loss = 0.0
         for i, data in tqdm(enumerate(trainloader, 0)):
             # get the inputs; data is a list of [inputs, labels]
@@ -161,6 +157,5 @@ def test(testloader, classes):
 
 
 if __name__ == '__main__':
-    main(images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/images',
-         train_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/train_set',
-         test_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/train_set')
+    main(train_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/train_set.xlsx',
+         train_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/images')

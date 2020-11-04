@@ -1,5 +1,6 @@
 '''
-This file takes the images and puts them into a spreadsheet for easier use
+This file takes the spreadsheet and turns into labelled images to use
+Need to cite from YouTube
 '''
 
 import os
@@ -7,6 +8,11 @@ import pandas as pd
 import torch
 from torch.utils.data import Dataset
 from skimage import io
+
+
+"""
+I want to run only if train_set.xlsx and test_set.xlsx do not currently exist
+"""
 
 
 class ImportDataset(Dataset):
