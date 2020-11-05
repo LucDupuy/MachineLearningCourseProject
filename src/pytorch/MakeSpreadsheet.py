@@ -10,9 +10,9 @@ import random
 import pandas as pd
 
 
-def main(enemy_train_path, none_train_path):
-    create_train_lists(enemy_train_path, none_train_path)
-    #create_test_lists(enemy_test_path, none_test_path)
+def main(enemy_train_path, none_train_path, enemy_test_path, none_test_path):
+    # create_train_lists(enemy_train_path, none_train_path)
+     create_test_lists(enemy_test_path, none_test_path)
 
 
 def create_train_lists(enemy_path, none_path):
@@ -75,14 +75,9 @@ def create_test_excel(e_col1, n_col1, e_col2, n_col2):
                      header=False, index=False)
 
 
-"""if __name__ == '__main__':
-    main(enemy_train_path=r'C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/ranenemy',
-         none_train_path=r'C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/rannone/',
-         enemy_test_path=r'C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/ranenemy',
-         none_test_path=r'C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/rannone/'
-         )"""
-
 if __name__ == '__main__':
     main(enemy_train_path=r'C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/enemy',
-         none_train_path=r'C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/none/'
+         none_train_path=r'C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/none/',
+         enemy_test_path=r'C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/ranenemy',
+         none_test_path=r'C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/rannone',
          )

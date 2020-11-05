@@ -32,23 +32,24 @@ class Net(nn.Module):
         return x
 
 
-def main(train_spreadsheet_path, train_images_path):
+def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_images_path):
     batch_size = 16
-    classes = ["enemy", "none"]
+    classes = ["none", "enemy"]
 
     train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path, transform=transforms.ToTensor())
-
     trainloader = DataLoader(dataset=train_set, batch_size=batch_size, shuffle=True)
-
-    print(train_set.__len__())
 
     train(trainloader, batch_size)
 
+    test_set = ImportDataset(excel_file=test_spreadsheet_path, dir=test_images_path, transform=transforms.ToTensor())
+    testloader = DataLoader(dataset=test_set, batch_size=batch_size, shuffle=True)
+
+    test(testloader, classes)
 
 
 def train(trainloader, batch_size):
+    print("Testing Beginning\n--------------------------------------\n")
     data = trainloader
-
     net = Net()
     net = net.to(device)  # Send to GPU
 
@@ -58,7 +59,7 @@ def train(trainloader, batch_size):
     optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
     # The TRAINING of the algo
-    for epoch in range(1):  # loop over the dataset multiple times
+    for epoch in range(60):  # loop over the dataset multiple times
         print("Total Iteration Per Epoch: ", 85936 / batch_size)
         running_loss = 0.0
         for i, data in tqdm(enumerate(trainloader, 0)):
@@ -75,12 +76,13 @@ def train(trainloader, batch_size):
 
             # print statistics
             running_loss += loss.item()
-            if i % 50 == 0:  # print every 50 mini-batches
+            if i % 100 == 0:  # print every 100 mini-batches
                 print('[%d, %5d] loss: %.3f' %
                       (epoch + 1, i + 1, running_loss / 2000))
                 running_loss = 0.0
 
-    print('Finished Training')
+    print('-------------------------------------'
+          '\nFinished Training')
     # ------------
 
     # Save the algo
@@ -99,6 +101,7 @@ def imshow(img):
 def test(testloader, classes):
     # get some random training images
     dataiter = iter(testloader)
+
     images, labels = dataiter.next()  # This is loading the data
     images = images.to(device)  # The loaded data must then be sent to the GPU
     labels = labels.to(device)  # Send to GPU
@@ -133,9 +136,11 @@ def test(testloader, classes):
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
 
-    print('Accuracy of the network on the 10000 test images: %d %%' % (
+    print('Accuracy of the network on the test images: %d %%' % (
             100 * correct / total))
 
+
+    # Accuracy of each individual class
     class_correct = list(0. for i in range(10))
     class_total = list(0. for i in range(10))
     with torch.no_grad():
@@ -158,4 +163,6 @@ def test(testloader, classes):
 
 if __name__ == '__main__':
     main(train_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/train_set.xlsx',
-         train_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/images')
+         train_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/images',
+         test_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/test_set.xlsx',
+         test_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/images')

@@ -18,6 +18,8 @@ class Net(nn.Module):
         x = self.fc3(x)
         return x
 
+    85936 training images
+
 
 If it crashes on the last iteration, it means the total number of iterations is not a whole number. Even if its printing
 that it is, check the length of the train_set, you might need to add or subtract an image or two
