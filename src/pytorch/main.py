@@ -18,17 +18,22 @@ class Net(nn.Module):
         self.conv1 = nn.Conv2d(3, 6, 5)
         self.pool = nn.MaxPool2d(2, 2)
         self.conv2 = nn.Conv2d(6, 16, 5)
+        # First param is input_size of the image, second is number of nodes (input sample, output sample)
         self.fc1 = nn.Linear(16*57*103, 120)
-        self.fc2 = nn.Linear(120, 84)
-        self.fc3 = nn.Linear(84, 10)
+        # This should be output of previous, number of classes
+        self.fc2 = nn.Linear(120, 2)
+        # self.fc3 = nn.Linear(84, 10)
 
+    """
+    Maps the input tensor to a prediction output tensor
+    """
     def forward(self, x):
         x = self.pool(F.relu(self.conv1(x)))
         x = self.pool(F.relu(self.conv2(x)))
         x = x.view(16, 16*57*103)
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
-        x = self.fc3(x)
+       # x = self.fc3(x)
         return x
 
 
@@ -48,7 +53,7 @@ def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_
 
 
 def train(trainloader, batch_size):
-    print("Testing Beginning\n--------------------------------------\n")
+    print("Training Beginning\n--------------------------------------\n")
     data = trainloader
     net = Net()
     net = net.to(device)  # Send to GPU
@@ -59,7 +64,7 @@ def train(trainloader, batch_size):
     optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
     # The TRAINING of the algo
-    for epoch in range(60):  # loop over the dataset multiple times
+    for epoch in range(1):  # loop over the dataset multiple times
         print("Total Iteration Per Epoch: ", 85936 / batch_size)
         running_loss = 0.0
         for i, data in tqdm(enumerate(trainloader, 0)):
@@ -99,6 +104,7 @@ def imshow(img):
 
 
 def test(testloader, classes):
+    print("Testing Beginning\n--------------------------------------\n")
     # get some random training images
     dataiter = iter(testloader)
 

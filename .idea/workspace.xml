@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Other than the hard coding of paths, everything is working and the model is training properly again.&#10;&#10;Hoping to change the model to use a bigger batch size for quicker training.">
+    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Training and testing is functional. Need to tweak the model though as it doesn't do very well. Most of the tweaks should be in the class variables, though batch size will effect the number of images we can use.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pytorch/MakeSpreadsheet.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/MakeSpreadsheet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pytorch/Notes" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/Notes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pytorch/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pytorch/model.pth" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/model.pth" afterDir="false" />
@@ -303,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604532544156</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Training and testing is functional. Need to tweak the model though as it doesn't do very well. Most of the tweaks should be in the class variables, though batch size will effect the number of images we can use.">
+      <created>1604594035982</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1604594035982</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -346,7 +352,8 @@
     <MESSAGE value="Removed the testing file and just put everything into 1 training file to simplify the neural network.&#10;&#10;Simplified the importing of training and testing sets in the code.&#10;&#10;There will be errors with that file because I had to change the directories to please gitignore after I coded it. Will fix those errors in the future." />
     <MESSAGE value="The model is training again properly. I hope to change some stuff to get a higher batch size for quicker training." />
     <MESSAGE value="Renamed the train file to main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Renamed the train file to main" />
+    <MESSAGE value="Training and testing is functional. Need to tweak the model though as it doesn't do very well. Most of the tweaks should be in the class variables, though batch size will effect the number of images we can use." />
+    <option name="LAST_COMMIT_MESSAGE" value="Training and testing is functional. Need to tweak the model though as it doesn't do very well. Most of the tweaks should be in the class variables, though batch size will effect the number of images we can use." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2974" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602611655917">
@@ -363,8 +370,8 @@
     </state>
     <state x="987" y="370" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604361449515" />
     <state x="3300" y="484" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1602611766346" />
-    <state width="1899" height="273" key="GridCell.Tab.0.bottom" timestamp="1604591867341">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1659" height="263" key="GridCell.Tab.0.bottom" timestamp="1604594564994">
+      <screen x="1920" y="34" width="1680" height="1010" />
     </state>
     <state width="816" height="205" key="GridCell.Tab.0.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1604467364446" />
     <state width="1899" height="298" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1152.824@0.0.1920.1040" timestamp="1604549442064" />
@@ -372,10 +379,11 @@
     <state width="1899" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1604591867341" />
     <state width="2539" height="300" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
     <state width="1899" height="158" key="GridCell.Tab.0.bottom/1920.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1604526617903" />
+    <state width="1659" height="263" key="GridCell.Tab.0.bottom/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1604594564994" />
     <state width="2539" height="492" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604331252284" />
     <state width="1899" height="300" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286939950" />
-    <state width="1899" height="273" key="GridCell.Tab.0.center" timestamp="1604591867341">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1659" height="263" key="GridCell.Tab.0.center" timestamp="1604594564994">
+      <screen x="1920" y="34" width="1680" height="1010" />
     </state>
     <state width="816" height="205" key="GridCell.Tab.0.center/0.0.1680.1010@0.0.1680.1010" timestamp="1604467364446" />
     <state width="1899" height="298" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1152.824@0.0.1920.1040" timestamp="1604549442064" />
@@ -383,10 +391,11 @@
     <state width="1899" height="273" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1604591867341" />
     <state width="2539" height="300" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
     <state width="1899" height="158" key="GridCell.Tab.0.center/1920.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1604526617903" />
+    <state width="1659" height="263" key="GridCell.Tab.0.center/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1604594564994" />
     <state width="2539" height="492" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604331252283" />
     <state width="1899" height="300" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286939950" />
-    <state width="1899" height="273" key="GridCell.Tab.0.left" timestamp="1604591867341">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1659" height="263" key="GridCell.Tab.0.left" timestamp="1604594564994">
+      <screen x="1920" y="34" width="1680" height="1010" />
     </state>
     <state width="816" height="205" key="GridCell.Tab.0.left/0.0.1680.1010@0.0.1680.1010" timestamp="1604467364446" />
     <state width="1899" height="298" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1152.824@0.0.1920.1040" timestamp="1604549442064" />
@@ -394,10 +403,11 @@
     <state width="1899" height="273" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1604591867341" />
     <state width="2539" height="300" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
     <state width="1899" height="158" key="GridCell.Tab.0.left/1920.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1604526617903" />
+    <state width="1659" height="263" key="GridCell.Tab.0.left/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1604594564994" />
     <state width="2539" height="492" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604331252283" />
     <state width="1899" height="300" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286939950" />
-    <state width="1899" height="273" key="GridCell.Tab.0.right" timestamp="1604591867341">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1659" height="263" key="GridCell.Tab.0.right" timestamp="1604594564994">
+      <screen x="1920" y="34" width="1680" height="1010" />
     </state>
     <state width="816" height="205" key="GridCell.Tab.0.right/0.0.1680.1010@0.0.1680.1010" timestamp="1604467364446" />
     <state width="1899" height="298" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1152.824@0.0.1920.1040" timestamp="1604549442064" />
@@ -405,6 +415,7 @@
     <state width="1899" height="273" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1604591867341" />
     <state width="2539" height="300" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
     <state width="1899" height="158" key="GridCell.Tab.0.right/1920.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1604526617903" />
+    <state width="1659" height="263" key="GridCell.Tab.0.right/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1604594564994" />
     <state width="2539" height="492" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604331252284" />
     <state width="1899" height="300" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286939950" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1604514390646">
@@ -432,11 +443,11 @@
     </state>
     <state x="615" y="222" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604292730647" />
     <state x="3021" y="374" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286782948" />
-    <state x="2492" y="346" key="Vcs.Push.Dialog.v2" timestamp="1604527159749">
+    <state x="2492" y="346" key="Vcs.Push.Dialog.v2" timestamp="1604594040173">
       <screen x="1920" y="34" width="1680" height="1010" />
     </state>
     <state x="572" y="312" key="Vcs.Push.Dialog.v2/0.0.1680.1010/-1920.-34.1920.1040@0.0.1680.1010" timestamp="1604438529823" />
-    <state x="2492" y="346" key="Vcs.Push.Dialog.v2/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1604527159749" />
+    <state x="2492" y="346" key="Vcs.Push.Dialog.v2/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1604594040173" />
     <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604298292120" />
     <state x="886" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604067881924">
       <screen x="0" y="0" width="2560" height="1400" />
