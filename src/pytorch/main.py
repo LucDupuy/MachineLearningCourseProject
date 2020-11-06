@@ -1,3 +1,4 @@
+import math
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
@@ -13,59 +14,77 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 
 class Net(nn.Module):
-    def __init__(self):
+    def __init__(self, input_size, num_class, batch_size):
+        self.input_size = input_size
+        self.num_class = num_class
+        self.batch_size = batch_size
+
         super(Net, self).__init__()
         self.conv1 = nn.Conv2d(3, 6, 5)
         self.pool = nn.MaxPool2d(2, 2)
-        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.conv2 = nn.Conv2d(6, self.batch_size, 5)
         # First param is input_size of the image, second is number of nodes (input sample, output sample)
-        self.fc1 = nn.Linear(16*57*103, 120)
-        # This should be output of previous, number of classes
-        self.fc2 = nn.Linear(120, 2)
-        # self.fc3 = nn.Linear(84, 10)
+        self.fc1 = nn.Linear(self.input_size, 120)
+        self.fc2 = nn.Linear(120, 84)
+        # Output is number of classes
+        self.fc3 = nn.Linear(84, self.num_class)
 
     """
     Maps the input tensor to a prediction output tensor
     """
+
     def forward(self, x):
         x = self.pool(F.relu(self.conv1(x)))
         x = self.pool(F.relu(self.conv2(x)))
-        x = x.view(16, 16*57*103)
+
+        x = x.view(self.batch_size, self.input_size)
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
-       # x = self.fc3(x)
+        x = self.fc3(x)
         return x
 
 
+
+batch_sizes = [10, 16, 32, 64]
+
+num_classes = 2
+learning_rate = 0.001
+momentum = 0.9
+num_print_loss = 1000
+
+
 def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_images_path):
-    batch_size = 16
     classes = ["none", "enemy"]
 
-    train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path, transform=transforms.ToTensor())
-    trainloader = DataLoader(dataset=train_set, batch_size=batch_size, shuffle=True)
+    for i in range(len(batch_sizes)):
+        input_size = batch_sizes[i] * 57 * 103
+        train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path,
+                                  transform=transforms.ToTensor())
+        trainloader = DataLoader(dataset=train_set, batch_size=batch_sizes[i], shuffle=True)
+        print("Training Beginning: \n--------------------------------------")
 
-    train(trainloader, batch_size)
+        train(trainloader, train_size=train_set.__len__(), batch=batch_sizes[i], idx=i, in_size=input_size)
+        test_set = ImportDataset(excel_file=test_spreadsheet_path, dir=test_images_path,
+                                 transform=transforms.ToTensor())
+        testloader = DataLoader(dataset=test_set, batch_size=batch_sizes[i], shuffle=True)
+        test(testloader, test_size = test_set.__len__(), classes=classes, batch=batch_sizes[i], in_size=input_size, idx=i)
 
-    test_set = ImportDataset(excel_file=test_spreadsheet_path, dir=test_images_path, transform=transforms.ToTensor())
-    testloader = DataLoader(dataset=test_set, batch_size=batch_size, shuffle=True)
 
-    test(testloader, classes)
-
-
-def train(trainloader, batch_size):
-    print("Training Beginning\n--------------------------------------\n")
-    data = trainloader
-    net = Net()
-    net = net.to(device)  # Send to GPU
+def train(trainloader, train_size, batch, idx, in_size):
+    tmp_batch = batch
+    total_iterations = math.floor(train_size / batch)
+    stopping_val = total_iterations - 100
+    print(f"Batch Size: {batch}\n")
+    net = Net(input_size=in_size, num_class=num_classes, batch_size=batch).to(device)
 
     # The Loss function and Optimizer
     # We can change parameters of the algo or change to a different algo completely here
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+    optimizer = optim.SGD(net.parameters(), lr=learning_rate, momentum=momentum)
 
     # The TRAINING of the algo
     for epoch in range(1):  # loop over the dataset multiple times
-        print("Total Iteration Per Epoch: ", 85936 / batch_size)
+        print("Total Iteration Per Epoch: ", total_iterations)
         running_loss = 0.0
         for i, data in tqdm(enumerate(trainloader, 0)):
             # get the inputs; data is a list of [inputs, labels]
@@ -81,17 +100,25 @@ def train(trainloader, batch_size):
 
             # print statistics
             running_loss += loss.item()
-            if i % 100 == 0:  # print every 100 mini-batches
+            if i % num_print_loss == 0 and i != 1:  # print every 1000 mini-batches
                 print('[%d, %5d] loss: %.3f' %
-                      (epoch + 1, i + 1, running_loss / 2000))
+                      (epoch + 1, i + 1, running_loss / num_print_loss))
                 running_loss = 0.0
+
+            # Stop on a whole number of iterations
+            if i >= stopping_val and i % tmp_batch == 0:
+                break
+            else:
+                continue
+        break
+
 
     print('-------------------------------------'
           '\nFinished Training')
     # ------------
 
     # Save the algo
-    PATH = './model.pth'
+    PATH = f'./models/model{batch}.pth'
     torch.save(net.state_dict(), PATH)
 
 
@@ -103,8 +130,12 @@ def imshow(img):
     plt.show()
 
 
-def test(testloader, classes):
+def test(testloader, test_size, classes, batch, in_size, idx):
+    tmp_batch = batch
+    total_iterations = math.floor(test_size / batch)
+    stopping_val = total_iterations - 100
     print("Testing Beginning\n--------------------------------------\n")
+
     # get some random training images
     dataiter = iter(testloader)
 
@@ -113,10 +144,10 @@ def test(testloader, classes):
     labels = labels.to(device)  # Send to GPU
 
     # Location of the trained algo
-    PATH = './model.pth'
+    PATH = f'./models/model{batch}.pth'
 
     # Loading the neural network code
-    net = Net()
+    net = Net(input_size=in_size, num_class=num_classes, batch_size=batch).to(device)
     net = net.to(device)  # Load to GPU
     net.load_state_dict(torch.load(PATH))
 
@@ -135,22 +166,24 @@ def test(testloader, classes):
     correct = 0
     total = 0
     with torch.no_grad():
-        for data in testloader:
+        for i, data in enumerate(testloader):
             images, labels = data[0].to(device), data[1].to(device)  # Load to GPU
             outputs = net(images).to(device)  # Load to GPU
             _, predicted = torch.max(outputs.data, 1)
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
+            if i >= stopping_val and i % tmp_batch == 0:
+                break
+            else:
+                continue
 
-    print('Accuracy of the network on the test images: %d %%' % (
-            100 * correct / total))
-
+    total_accuracy = 'Accuracy of the network on the test images: %d %% \n' % (100 * correct / total)
 
     # Accuracy of each individual class
-    class_correct = list(0. for i in range(10))
-    class_total = list(0. for i in range(10))
+    class_correct = list(0. for i in range(num_classes))
+    class_total = list(0. for i in range(num_classes))
     with torch.no_grad():
-        for data in testloader:
+        for j, data in enumerate(testloader):
             images, labels = data[0].to(device), data[1].to(device)  # Load to GPU
             outputs = net(images).to(device)  # Load to GPU
             _, predicted = torch.max(outputs, 1)
@@ -159,16 +192,28 @@ def test(testloader, classes):
                 label = labels[i].to(device)  # Load to GPU
                 class_correct[label] += c[i].item()
                 class_total[label] += 1
+            if j >= stopping_val and j % tmp_batch == 0:
+                break
+            else:
+                continue
 
-    for i in range(10):
-        print('Accuracy of %5s : %2d %%' % (
-            classes[i], 100 * class_correct[i] / class_total[i]))
+    class_accuracy = []
+    for i in range(num_classes):
+        class_accuracy.append('Accuracy of %5s : %2d %%\n' % (classes[i], 100 * class_correct[i] / class_total[i]))
+
+    file = open(f"./results/Results{batch}.txt", 'a')
+    file.write(f"Batch Size: {batch}\n")
+    file.write(total_accuracy)
+    file.write(class_accuracy[0])
+    file.write(class_accuracy[1])
+    file.close()
 
     # ---------------------------------------------
 
 
 if __name__ == '__main__':
-    main(train_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/train_set.xlsx',
-         train_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/images',
-         test_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/test_set.xlsx',
-         test_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/images')
+    main(
+        train_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/train_set.xlsx',
+        train_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/images',
+        test_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/test_set.xlsx',
+        test_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/images')
