@@ -49,19 +49,20 @@ class Net(nn.Module):
 
 
 
-batch_sizes = [10, 16, 32, 64]
+batch_sizes = [1, 5, 10, 16, 32, 64]
 
 num_classes = 2
 learning_rate = 0.001
 momentum = 0.9
 num_print_loss = 1000
+epochs = 10
 
 
 def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_images_path):
     classes = ["none", "enemy"]
 
     for i in range(len(batch_sizes)):
-        input_size = batch_sizes[i] * 1068 * 1908#57 * 103
+        input_size = batch_sizes[i] * 57 * 77
         train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path,
                                   transform=transforms.ToTensor())
         trainloader = DataLoader(dataset=train_set, batch_size=batch_sizes[i], shuffle=True)
@@ -87,7 +88,7 @@ def train(trainloader, train_size, batch, idx, in_size):
     optimizer = optim.SGD(net.parameters(), lr=learning_rate, momentum=momentum)
 
     # The TRAINING of the algo
-    for epoch in range(1):  # loop over the dataset multiple times
+    for epoch in range(epochs):  # loop over the dataset multiple times
         print("Total Iteration Per Epoch: ", total_iterations)
         running_loss = 0.0
         for i, data in tqdm(enumerate(trainloader, 0)):
@@ -114,7 +115,7 @@ def train(trainloader, train_size, batch, idx, in_size):
                 break
             else:
                 continue
-        break
+
 
 
     print('-------------------------------------'
@@ -205,7 +206,7 @@ def test(testloader, test_size, classes, batch, in_size, idx):
     for i in range(num_classes):
         class_accuracy.append('Accuracy of %5s : %2d %%\n' % (classes[i], 100 * class_correct[i] / class_total[i]))
 
-    file = open(f"./results/Results{batch}.txt", 'a')
+    file = open(f"./results/Results{batch}-{epochs}.txt", 'a')
     file.write(f"Batch Size: {batch}\n")
     file.write(total_accuracy)
     file.write(class_accuracy[0])
@@ -216,13 +217,13 @@ def test(testloader, test_size, classes, batch, in_size, idx):
 
 
 if __name__ == '__main__':
-    main(
+    """main(
         train_spreadsheet_path=os.getenv("TRAIN_SPREADSHEET"),
         train_images_path=os.getenv("TRAIN_IMAGES"),
         test_spreadsheet_path=os.getenv("TEST_SPREADSHEET"),
-        test_images_path=os.getenv("TEST_IMAGES"))
-    #main(
-    #    train_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/train_set.xlsx',
-    #    train_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/images',
-    #    test_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/test_set.xlsx',
-    #    test_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/images')
+        test_images_path=os.getenv("TEST_IMAGES"))"""
+    main(
+        train_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/train_set.xlsx',
+        train_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/images',
+        test_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/test_set.xlsx',
+        test_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/images')
