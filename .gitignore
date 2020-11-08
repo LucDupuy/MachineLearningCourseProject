@@ -3,3 +3,4 @@ src/pytorch/data/training_data
 src/pytorch/data/training_data/
 src/pytorch/models
 src/pytorch/models/
+**/.env

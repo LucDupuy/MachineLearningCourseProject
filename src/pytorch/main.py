@@ -6,9 +6,13 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 import torchvision.transforms as transforms
+import os
 from torch.utils.data import DataLoader
 from tqdm import tqdm
+from dotenv import load_dotenv
 from CustomDataset import ImportDataset
+
+load_dotenv()
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -57,7 +61,7 @@ def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_
     classes = ["none", "enemy"]
 
     for i in range(len(batch_sizes)):
-        input_size = batch_sizes[i] * 57 * 103
+        input_size = batch_sizes[i] * 1068 * 1908#57 * 103
         train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path,
                                   transform=transforms.ToTensor())
         trainloader = DataLoader(dataset=train_set, batch_size=batch_sizes[i], shuffle=True)
@@ -213,7 +217,12 @@ def test(testloader, test_size, classes, batch, in_size, idx):
 
 if __name__ == '__main__':
     main(
-        train_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/train_set.xlsx',
-        train_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/images',
-        test_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/test_set.xlsx',
-        test_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/images')
+        train_spreadsheet_path=os.getenv("TRAIN_SPREADSHEET"),
+        train_images_path=os.getenv("TRAIN_IMAGES"),
+        test_spreadsheet_path=os.getenv("TEST_SPREADSHEET"),
+        test_images_path=os.getenv("TEST_IMAGES"))
+    #main(
+    #    train_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/train_set.xlsx',
+    #    train_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/images',
+    #    test_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/test_set.xlsx',
+    #    test_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/images')
