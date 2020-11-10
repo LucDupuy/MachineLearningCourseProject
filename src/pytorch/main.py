@@ -49,13 +49,13 @@ class Net(nn.Module):
 
 
 
-batch_sizes = [1, 5, 10, 16, 32, 64]
+batch_sizes = [5, 10, 16]
 
 num_classes = 2
 learning_rate = 0.001
 momentum = 0.9
 num_print_loss = 1000
-epochs = 10
+epochs = 1
 
 
 def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_images_path):
@@ -182,7 +182,7 @@ def test(testloader, test_size, classes, batch, in_size, idx):
             else:
                 continue
 
-    total_accuracy = 'Accuracy of the network on the test images: %d %% \n' % (100 * correct / total)
+    total_accuracy = 'Accuracy of the network on the test images: %.5f %% \n' % (100 * correct / total)
 
     # Accuracy of each individual class
     class_correct = list(0. for i in range(num_classes))
@@ -204,7 +204,7 @@ def test(testloader, test_size, classes, batch, in_size, idx):
 
     class_accuracy = []
     for i in range(num_classes):
-        class_accuracy.append('Accuracy of %5s : %2d %%\n' % (classes[i], 100 * class_correct[i] / class_total[i]))
+        class_accuracy.append('Accuracy of %5s : %.5f %%\n' % (classes[i], 100 * class_correct[i] / class_total[i]))
 
     file = open(f"./results/Results{batch}-{epochs}.txt", 'a')
     file.write(f"Batch Size: {batch}\n")
