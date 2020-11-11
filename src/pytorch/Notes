@@ -24,9 +24,11 @@ class Net(nn.Module):
 If it crashes on the last iteration, it means the total number of iterations is not a whole number. Even if its printing
 that it is, check the length of the train_set, you might need to add or subtract an image or two.
 
-Can we implement something that maybe that last 50 iterations or so are done in smaller batches? It would allow more
-flexibility with total image size and cut down on some of the work.
-
 
 ----------------NUMBERS FOR BATCH SIZE OF 32------------------------
 [batch_size = 32, channels = 16, h=240, w=424]
+
+
+
+
+(Conv -> Relu -> Conv -> Relu -> Pool)^+ FC

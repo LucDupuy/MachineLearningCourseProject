@@ -27,6 +27,7 @@ class Net(nn.Module):
         self.conv1 = nn.Conv2d(3, 6, 5)
         self.pool = nn.MaxPool2d(2, 2)
         self.conv2 = nn.Conv2d(6, self.batch_size, 5)
+
         # First param is input_size of the image, second is number of nodes (input sample, output sample)
         self.fc1 = nn.Linear(self.input_size, 120)
         self.fc2 = nn.Linear(120, 84)
