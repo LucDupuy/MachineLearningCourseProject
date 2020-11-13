@@ -50,7 +50,7 @@ class Net(nn.Module):
 
 
 
-batch_sizes = [5, 10, 16]
+batch_sizes = [5]
 
 num_classes = 2
 learning_rate = 0.001
@@ -63,7 +63,10 @@ def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_
     classes = ["none", "enemy"]
 
     for i in range(len(batch_sizes)):
-        input_size = batch_sizes[i] * 57 * 77
+
+        # Shape for x.view's second parameter has to be [batch size, batch size * constant to satisfy error (cant figure
+        # out what "input size of X" refers to]
+        input_size = batch_sizes[i] * 4381
         train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path,
                                   transform=transforms.ToTensor())
         trainloader = DataLoader(dataset=train_set, batch_size=batch_sizes[i], shuffle=True)
