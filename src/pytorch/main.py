@@ -66,7 +66,7 @@ def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_
 
         # Shape for x.view's second parameter has to be [batch size, batch size * constant to satisfy error (cant figure
         # out what "input size of X" refers to]
-        input_size = batch_sizes[i] * 4381
+        input_size = batch_sizes[i] * 4389
         train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path,
                                   transform=transforms.ToTensor())
         trainloader = DataLoader(dataset=train_set, batch_size=batch_sizes[i], shuffle=True)

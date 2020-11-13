@@ -19,8 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Added a note detailing a sample architecture.&#10;&#10;Added notes in the spreadsheets comparing results between the tweaked model&#10;and the original model.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Explained the input_size variable a bit better.">
       <change beforePath="$PROJECT_DIR$/src/pytorch/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -342,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605060665157</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Explained the input_size variable a bit better.">
+      <created>1605293415249</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1605293415249</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -391,7 +397,8 @@
     <MESSAGE value="Summarized today's results into 2 spreadsheets, they can be found in the results folder" />
     <MESSAGE value="Added some more results from tweaking the model" />
     <MESSAGE value="Added a note detailing a sample architecture.&#10;&#10;Added notes in the spreadsheets comparing results between the tweaked model&#10;and the original model." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a note detailing a sample architecture.&#10;&#10;Added notes in the spreadsheets comparing results between the tweaked model&#10;and the original model." />
+    <MESSAGE value="Explained the input_size variable a bit better." />
+    <option name="LAST_COMMIT_MESSAGE" value="Explained the input_size variable a bit better." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2974" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602611655917">
@@ -488,11 +495,11 @@
     </state>
     <state x="615" y="222" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604292730647" />
     <state x="3021" y="374" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286782948" />
-    <state x="2492" y="346" key="Vcs.Push.Dialog.v2" timestamp="1605060789322">
-      <screen x="1920" y="34" width="1680" height="1010" />
+    <state x="654" y="321" key="Vcs.Push.Dialog.v2" timestamp="1605293417470">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="572" y="312" key="Vcs.Push.Dialog.v2/0.0.1680.1010/-1920.-34.1920.1040@0.0.1680.1010" timestamp="1604438529823" />
-    <state x="654" y="321" key="Vcs.Push.Dialog.v2/1920.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1605025609725" />
+    <state x="654" y="321" key="Vcs.Push.Dialog.v2/1920.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1605293417470" />
     <state x="2492" y="346" key="Vcs.Push.Dialog.v2/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1605060789322" />
     <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604298292120" />
     <state x="886" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604067881924">
