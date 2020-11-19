@@ -50,7 +50,7 @@ class Net(nn.Module):
         return x
 
 
-batch_sizes = [3, 4, 5, 10, 16, 32, 64]
+batch_sizes = [3, 4, 5, 6,7, 10, 16, 32, 64]
 
 num_classes = 2
 learning_rates = 0.001
