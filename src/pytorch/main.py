@@ -50,10 +50,10 @@ class Net(nn.Module):
         return x
 
 
-batch_sizes = [1, 2, 5, 16, 32, 64]
+batch_sizes = [3, 4, 5, 10, 16, 32, 64]
 
 num_classes = 2
-learning_rates = [0.001, 0.002, 0.003, 0.004, 0.0001, 0.0002, 0.0003, 0.0004]
+learning_rates = 0.001
 momentum = 0.9
 num_print_loss = 1000
 epochs = 1
@@ -64,27 +64,28 @@ def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_
     classes = ["none", "enemy"]
 
     for i in range(len(batch_sizes)):
-        for j in range(len(learning_rates)):
-            # Shape for x.view's second parameter has to be [batch size, batch size * constant to satisfy error (cant figure
-            # out what "input size of X" refers to]
-            input_size = batch_sizes[i] * 4389
+        # Shape for x.view's second parameter has to be [batch size, batch size * constant to satisfy error (cant figure
+        # out what "input size of X" refers to]
+        input_size = batch_sizes[i] * 4389
 
-            train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path,
-                                      transform=transforms.ToTensor())
-            trainloader = DataLoader(dataset=train_set, batch_size=batch_sizes[i], shuffle=True)
+        train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path,
+                                  transform=transforms.ToTensor())
+        trainloader = DataLoader(dataset=train_set, batch_size=batch_sizes[i], shuffle=True)
 
-            valid_set = ImportDataset(excel_file=valid_spreadsheet_path, dir=valid_images_path,
-                                      transform=transforms.ToTensor())
-            validloader = DataLoader(dataset=valid_set, batch_size=batch_sizes[i], shuffle=True)
+        valid_set = ImportDataset(excel_file=valid_spreadsheet_path, dir=valid_images_path,
+                                  transform=transforms.ToTensor())
+        validloader = DataLoader(dataset=valid_set, batch_size=batch_sizes[i], shuffle=True)
 
-            print("Training Beginning: \n--------------------------------------")
+        print("Training Beginning: \n--------------------------------------")
 
-            train(trainloader, train_size=train_set.__len__(), batch=batch_sizes[i], in_size=input_size, lr=learning_rates[j])
+        train(trainloader, train_size=train_set.__len__(), batch=batch_sizes[i], in_size=input_size)
 
-            validate(validloader, test_size=valid_set.__len__(), batch=batch_sizes[i], in_size=input_size, lr=learning_rates[j])
+        validate(validloader, test_size=valid_set.__len__(), batch=batch_sizes[i], in_size=input_size)
 
 
-def train(trainloader, train_size, batch, in_size, lr):
+
+
+def train(trainloader, train_size, batch, in_size):
     tmp_batch = batch
     total_iterations = math.floor(train_size / batch)
     stopping_val = total_iterations - 100
@@ -94,7 +95,7 @@ def train(trainloader, train_size, batch, in_size, lr):
     # The Loss function and Optimizer
     # We can change parameters of the algo or change to a different algo completely here
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(net.parameters(), lr=lr, momentum=momentum)
+    optimizer = optim.SGD(net.parameters(), lr=learning_rate, momentum=momentum)
 
     # The TRAINING of the algo
     for epoch in range(epochs):  # loop over the dataset multiple times
@@ -145,7 +146,7 @@ def imshow(img):
     plt.show()
 
 
-def validate(validloader, test_size, batch, in_size, lr):
+def validate(validloader, test_size, batch, in_size):
     tmp_batch = batch
     total_iterations = math.floor(test_size / batch)
     stopping_val = total_iterations - 100
@@ -221,7 +222,7 @@ def validate(validloader, test_size, batch, in_size, lr):
     enemy_acc = class_accuracy[1]
 
     createResultsSpreadsheet(network_acc=total_accuracy, none_acc=none_acc, enemy_acc=enemy_acc,
-                             batch_size=batch, epoch=epochs, lr=lr)
+                             batch_size=batch, epoch=epochs, lr=learning_rate)
 
     # file = open(f"./results/Results{batch}-{epochs}.txt", 'a')
     # file.write(f"Batch Size: {batch}\n")
