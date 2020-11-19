@@ -1,12 +1,13 @@
 import math
-import matplotlib.pyplot as plt
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 import torchvision.transforms as transforms
+import pandas as pd
 import os
+import matplotlib.pyplot  as plt
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 from dotenv import load_dotenv
@@ -49,8 +50,7 @@ class Net(nn.Module):
         return x
 
 
-
-batch_sizes = [5]
+batch_sizes = [10]
 
 num_classes = 2
 learning_rate = 0.001
@@ -59,27 +59,33 @@ num_print_loss = 1000
 epochs = 1
 
 
-def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_images_path):
+def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_images_path, valid_images_path,
+         valid_spreadsheet_path):
     classes = ["none", "enemy"]
 
     for i in range(len(batch_sizes)):
-
         # Shape for x.view's second parameter has to be [batch size, batch size * constant to satisfy error (cant figure
         # out what "input size of X" refers to]
         input_size = batch_sizes[i] * 4389
+
         train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path,
                                   transform=transforms.ToTensor())
         trainloader = DataLoader(dataset=train_set, batch_size=batch_sizes[i], shuffle=True)
+
+        valid_set = ImportDataset(excel_file=valid_spreadsheet_path, dir=valid_images_path,
+                                  transform=transforms.ToTensor())
+        validloader = DataLoader(dataset=valid_set, batch_size=batch_sizes[i], shuffle=True)
+
         print("Training Beginning: \n--------------------------------------")
 
-        train(trainloader, train_size=train_set.__len__(), batch=batch_sizes[i], idx=i, in_size=input_size)
-        test_set = ImportDataset(excel_file=test_spreadsheet_path, dir=test_images_path,
-                                 transform=transforms.ToTensor())
-        testloader = DataLoader(dataset=test_set, batch_size=batch_sizes[i], shuffle=True)
-        test(testloader, test_size = test_set.__len__(), classes=classes, batch=batch_sizes[i], in_size=input_size, idx=i)
+        #  train(trainloader, train_size=train_set.__len__(), batch=batch_sizes[i], in_size=input_size)
+
+        # validate(validloader, test_size=valid_set.__len__(), batch=batch_sizes[i], in_size=input_size)
+
+        createResultsSpreadsheet(4, 8, 15, 16, 23, 42)
 
 
-def train(trainloader, train_size, batch, idx, in_size):
+def train(trainloader, train_size, batch, in_size):
     tmp_batch = batch
     total_iterations = math.floor(train_size / batch)
     stopping_val = total_iterations - 100
@@ -93,7 +99,7 @@ def train(trainloader, train_size, batch, idx, in_size):
 
     # The TRAINING of the algo
     for epoch in range(epochs):  # loop over the dataset multiple times
-        print("Total Iteration Per Epoch: ", total_iterations)
+        print("Total Iterations Per Epoch: ", total_iterations)
         running_loss = 0.0
         for i, data in tqdm(enumerate(trainloader, 0)):
             # get the inputs; data is a list of [inputs, labels]
@@ -109,9 +115,12 @@ def train(trainloader, train_size, batch, idx, in_size):
 
             # print statistics
             running_loss += loss.item()
+
+            # print statistics
             if i % num_print_loss == 0 and i != 1:  # print every 1000 mini-batches
                 print('[%d, %5d] loss: %.3f' %
                       (epoch + 1, i + 1, running_loss / num_print_loss))
+
                 running_loss = 0.0
 
             # Stop on a whole number of iterations
@@ -119,8 +128,6 @@ def train(trainloader, train_size, batch, idx, in_size):
                 break
             else:
                 continue
-
-
 
     print('-------------------------------------'
           '\nFinished Training')
@@ -139,14 +146,14 @@ def imshow(img):
     plt.show()
 
 
-def test(testloader, test_size, classes, batch, in_size, idx):
+def validate(validloader, test_size, batch, in_size):
     tmp_batch = batch
     total_iterations = math.floor(test_size / batch)
     stopping_val = total_iterations - 100
-    print("Testing Beginning\n--------------------------------------\n")
+    print("Validation Beginning\n--------------------------------------\n")
 
     # get some random training images
-    dataiter = iter(testloader)
+    dataiter = iter(validloader)
 
     images, labels = dataiter.next()  # This is loading the data
     images = images.to(device)  # The loaded data must then be sent to the GPU
@@ -175,7 +182,7 @@ def test(testloader, test_size, classes, batch, in_size, idx):
     correct = 0
     total = 0
     with torch.no_grad():
-        for i, data in enumerate(testloader):
+        for i, data in enumerate(validloader):
             images, labels = data[0].to(device), data[1].to(device)  # Load to GPU
             outputs = net(images).to(device)  # Load to GPU
             _, predicted = torch.max(outputs.data, 1)
@@ -186,13 +193,14 @@ def test(testloader, test_size, classes, batch, in_size, idx):
             else:
                 continue
 
-    total_accuracy = 'Accuracy of the network on the test images: %.5f %% \n' % (100 * correct / total)
+    # total_accuracy = 'Accuracy of the network on the test images: %.5f %% \n' % (100 * correct / total)
+    total_accuracy = 100 * correct / total
 
     # Accuracy of each individual class
     class_correct = list(0. for i in range(num_classes))
     class_total = list(0. for i in range(num_classes))
     with torch.no_grad():
-        for j, data in enumerate(testloader):
+        for j, data in enumerate(validloader):
             images, labels = data[0].to(device), data[1].to(device)  # Load to GPU
             outputs = net(images).to(device)  # Load to GPU
             _, predicted = torch.max(outputs, 1)
@@ -208,16 +216,45 @@ def test(testloader, test_size, classes, batch, in_size, idx):
 
     class_accuracy = []
     for i in range(num_classes):
-        class_accuracy.append('Accuracy of %5s : %.5f %%\n' % (classes[i], 100 * class_correct[i] / class_total[i]))
+        class_accuracy.append(100 * class_correct[i] / class_total[i])
 
-    file = open(f"./results/Results{batch}-{epochs}.txt", 'a')
-    file.write(f"Batch Size: {batch}\n")
-    file.write(total_accuracy)
-    file.write(class_accuracy[0])
-    file.write(class_accuracy[1])
-    file.close()
+    none_acc = class_accuracy[0]
+    enemy_acc = class_accuracy[1]
+
+    createResultsSpreadsheet(network_acc=total_accuracy, none_acc=none_acc, enemy_acc=enemy_acc,
+                             batch_size=batch, epoch=epochs, lr=learning_rate)
+
+    # file = open(f"./results/Results{batch}-{epochs}.txt", 'a')
+    # file.write(f"Batch Size: {batch}\n")
+    # file.write(total_accuracy)
+    # file.write(class_accuracy[0])
+    # file.write(class_accuracy[1])
+    # file.close()
 
     # ---------------------------------------------
+
+
+def createResultsSpreadsheet(network_acc, none_acc, enemy_acc, batch_size, epoch, lr):
+    with pd.option_context('display.max_rows', None, 'display.max_columns', None):
+
+        results_file = "./results/New Dataset/results.xlsx"
+
+        new_row = {'Batch Size': batch_size, 'Epochs': epoch, 'Learning Rate': lr,
+                                'Accuracy of Network': network_acc, 'Accuracy of None': none_acc,
+                                'Accuracy of Enemy':enemy_acc}
+
+        if os.path.isfile(results_file):
+            df = pd.read_excel(results_file)
+            df = df.append(new_row, ignore_index=True)
+
+
+            df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/results/New Dataset/results.xlsx',
+                             header=True, index=False)
+
+        else:
+            new_df = pd.DataFrame(data=new_row)
+            new_df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/results/New Dataset/results.xlsx',
+                             header=True, index=False)
 
 
 if __name__ == '__main__':
@@ -230,4 +267,7 @@ if __name__ == '__main__':
         train_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/train_set.xlsx',
         train_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/training_data/images',
         test_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/test_set.xlsx',
-        test_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/images')
+        test_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/testing_data/images',
+        valid_spreadsheet_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/valid_data/valid_set.xlsx',
+        valid_images_path='C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/data/valid_data/images'
+    )

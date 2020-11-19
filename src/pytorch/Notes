@@ -32,3 +32,52 @@ that it is, check the length of the train_set, you might need to add or subtract
 
 
 (Conv -> Relu -> Conv -> Relu -> Pool)^+ FC
+
+
+
+
+
+
+
+TO DO
+******
+
+Add a validating set and do predictions
+
+
+VALID CODE
+************
+https://www.youtube.com/watch?v=zFA8Cm13Xmk
+
+
+
+
+# add reference for CustomDataset.py
+
+
+
+def validate(model, validloader, criterion):
+
+    # can save model parameters so you don't go through them again to save time
+    optimizer = optim.SGD(model.parameters(), lr=learning_rate, momentum=momentum)
+
+    valid_loss = 0
+    accuracy   = 0
+
+    for images, labels in iter(validloader):
+        images = images.to(device)
+        labels = labels.to(device)
+
+        output = model.forward(images)
+        valid_loss += criterion(output, labels).item()
+
+        probabilities = torch.exp(output)
+
+        equality = labels.data == probabilities.max(dim=1)[1]
+        accuracy += equality.type(torch.FloatTensor).mean()
+
+
+    return valid_loss, accuracy
+
+
+
