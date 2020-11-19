@@ -19,22 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Explained the input_size variable a bit better.">
-      <change afterPath="$PROJECT_DIR$/src/pytorch/results/New Dataset/results.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pytorch/results/Old Dataset/1st Model/Results - Tweaking Parameters (1st Model).xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pytorch/results/Old Dataset/Extra Pooling/Results - Extra Pooling.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pytorch/results/Old Dataset/High FC Numbers (240, 120)/Results - Larger FC Parameters.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pytorch/results/Old Dataset/Low FC Numbers (80, 40)/Results - Larger FC Parameters.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pytorch/results/Old Dataset/Results5-1 - Pooling After 2nd Conv.txt" afterDir="false" />
+    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Added a function that saves all of the results in an excel sheet instead of a text file.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pytorch/MakeSpreadsheet.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/MakeSpreadsheet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pytorch/Notes" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/Notes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pytorch/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pytorch/results/1st Model/Results - Tweaking Parameters (1st Model).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pytorch/results/Extra Pooling/Results - Extra Pooling.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pytorch/results/High FC Numbers (240, 120)/Results - Larger FC Parameters.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pytorch/results/Low FC Numbers (80, 40)/Results - Larger FC Parameters.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pytorch/results/Results5-1 - Pooling After 2nd Conv.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pytorch/results/New Dataset/results.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/results/New Dataset/Results.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -369,7 +357,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605293446541</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added a function that saves all of the results in an excel sheet instead of a text file.">
+      <created>1605760393113</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1605760393113</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -419,7 +414,8 @@
     <MESSAGE value="Added some more results from tweaking the model" />
     <MESSAGE value="Added a note detailing a sample architecture.&#10;&#10;Added notes in the spreadsheets comparing results between the tweaked model&#10;and the original model." />
     <MESSAGE value="Explained the input_size variable a bit better." />
-    <option name="LAST_COMMIT_MESSAGE" value="Explained the input_size variable a bit better." />
+    <MESSAGE value="Added a function that saves all of the results in an excel sheet instead of a text file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a function that saves all of the results in an excel sheet instead of a text file." />
   </component>
   <component name="WindowStateProjectService">
     <state x="2974" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602611655917">
@@ -439,7 +435,7 @@
     <state x="2568" y="301" key="FileChooserDialogImpl/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1605129873170" />
     <state x="987" y="370" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605392772624" />
     <state x="3300" y="484" key="FileChooserDialogImpl/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1602611766346" />
-    <state width="2539" height="204" key="GridCell.Tab.0.bottom" timestamp="1605760114269">
+    <state width="2539" height="204" key="GridCell.Tab.0.bottom" timestamp="1605760470540">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1259" height="191" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1604855779322" />
@@ -450,9 +446,9 @@
     <state width="2539" height="300" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
     <state width="1899" height="310" key="GridCell.Tab.0.bottom/1920.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1605371338840" />
     <state width="1659" height="310" key="GridCell.Tab.0.bottom/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1605332173782" />
-    <state width="2539" height="204" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605760114269" />
+    <state width="2539" height="204" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605760470540" />
     <state width="1899" height="198" key="GridCell.Tab.0.bottom/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1605748512731" />
-    <state width="2539" height="204" key="GridCell.Tab.0.center" timestamp="1605760114269">
+    <state width="2539" height="204" key="GridCell.Tab.0.center" timestamp="1605760470540">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1259" height="191" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1604855779322" />
@@ -463,9 +459,9 @@
     <state width="2539" height="300" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
     <state width="1899" height="310" key="GridCell.Tab.0.center/1920.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1605371338840" />
     <state width="1659" height="310" key="GridCell.Tab.0.center/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1605332173782" />
-    <state width="2539" height="204" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605760114269" />
+    <state width="2539" height="204" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605760470540" />
     <state width="1899" height="198" key="GridCell.Tab.0.center/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1605748512731" />
-    <state width="2539" height="204" key="GridCell.Tab.0.left" timestamp="1605760114269">
+    <state width="2539" height="204" key="GridCell.Tab.0.left" timestamp="1605760470540">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1259" height="191" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1604855779322" />
@@ -476,9 +472,9 @@
     <state width="2539" height="300" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
     <state width="1899" height="310" key="GridCell.Tab.0.left/1920.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1605371338840" />
     <state width="1659" height="310" key="GridCell.Tab.0.left/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1605332173782" />
-    <state width="2539" height="204" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605760114269" />
+    <state width="2539" height="204" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605760470540" />
     <state width="1899" height="198" key="GridCell.Tab.0.left/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1605748512730" />
-    <state width="2539" height="204" key="GridCell.Tab.0.right" timestamp="1605760114269">
+    <state width="2539" height="204" key="GridCell.Tab.0.right" timestamp="1605760470540">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1259" height="191" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1604855779322" />
@@ -489,7 +485,7 @@
     <state width="2539" height="300" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1604284977705" />
     <state width="1899" height="310" key="GridCell.Tab.0.right/1920.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1605371338840" />
     <state width="1659" height="310" key="GridCell.Tab.0.right/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1605332173782" />
-    <state width="2539" height="204" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605760114269" />
+    <state width="2539" height="204" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605760470540" />
     <state width="1899" height="198" key="GridCell.Tab.0.right/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1605748512731" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1604514390646">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -516,13 +512,13 @@
     </state>
     <state x="615" y="222" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605755932837" />
     <state x="3021" y="374" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286782948" />
-    <state x="654" y="321" key="Vcs.Push.Dialog.v2" timestamp="1605293451298">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1605760431439">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="572" y="312" key="Vcs.Push.Dialog.v2/0.0.1680.1010/-1920.-34.1920.1040@0.0.1680.1010" timestamp="1604438529823" />
     <state x="654" y="321" key="Vcs.Push.Dialog.v2/1920.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1605293451298" />
     <state x="2492" y="346" key="Vcs.Push.Dialog.v2/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1605060789322" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1604298292120" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605760431439" />
     <state x="886" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604067881924">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

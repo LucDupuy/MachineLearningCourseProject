@@ -50,10 +50,10 @@ class Net(nn.Module):
         return x
 
 
-batch_sizes = [10]
+batch_sizes = [1, 2, 5, 16, 32, 64]
 
 num_classes = 2
-learning_rate = 0.001
+learning_rates = [0.001, 0.002, 0.003, 0.004, 0.0001, 0.0002, 0.0003, 0.0004]
 momentum = 0.9
 num_print_loss = 1000
 epochs = 1
@@ -64,28 +64,27 @@ def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_
     classes = ["none", "enemy"]
 
     for i in range(len(batch_sizes)):
-        # Shape for x.view's second parameter has to be [batch size, batch size * constant to satisfy error (cant figure
-        # out what "input size of X" refers to]
-        input_size = batch_sizes[i] * 4389
+        for j in range(len(learning_rates)):
+            # Shape for x.view's second parameter has to be [batch size, batch size * constant to satisfy error (cant figure
+            # out what "input size of X" refers to]
+            input_size = batch_sizes[i] * 4389
 
-        train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path,
-                                  transform=transforms.ToTensor())
-        trainloader = DataLoader(dataset=train_set, batch_size=batch_sizes[i], shuffle=True)
+            train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path,
+                                      transform=transforms.ToTensor())
+            trainloader = DataLoader(dataset=train_set, batch_size=batch_sizes[i], shuffle=True)
 
-        valid_set = ImportDataset(excel_file=valid_spreadsheet_path, dir=valid_images_path,
-                                  transform=transforms.ToTensor())
-        validloader = DataLoader(dataset=valid_set, batch_size=batch_sizes[i], shuffle=True)
+            valid_set = ImportDataset(excel_file=valid_spreadsheet_path, dir=valid_images_path,
+                                      transform=transforms.ToTensor())
+            validloader = DataLoader(dataset=valid_set, batch_size=batch_sizes[i], shuffle=True)
 
-        print("Training Beginning: \n--------------------------------------")
+            print("Training Beginning: \n--------------------------------------")
 
-        #  train(trainloader, train_size=train_set.__len__(), batch=batch_sizes[i], in_size=input_size)
+            train(trainloader, train_size=train_set.__len__(), batch=batch_sizes[i], in_size=input_size, lr=learning_rates[j])
 
-        # validate(validloader, test_size=valid_set.__len__(), batch=batch_sizes[i], in_size=input_size)
-
-        createResultsSpreadsheet(4, 8, 15, 16, 23, 42)
+            validate(validloader, test_size=valid_set.__len__(), batch=batch_sizes[i], in_size=input_size, lr=learning_rates[j])
 
 
-def train(trainloader, train_size, batch, in_size):
+def train(trainloader, train_size, batch, in_size, lr):
     tmp_batch = batch
     total_iterations = math.floor(train_size / batch)
     stopping_val = total_iterations - 100
@@ -95,7 +94,7 @@ def train(trainloader, train_size, batch, in_size):
     # The Loss function and Optimizer
     # We can change parameters of the algo or change to a different algo completely here
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(net.parameters(), lr=learning_rate, momentum=momentum)
+    optimizer = optim.SGD(net.parameters(), lr=lr, momentum=momentum)
 
     # The TRAINING of the algo
     for epoch in range(epochs):  # loop over the dataset multiple times
@@ -146,7 +145,7 @@ def imshow(img):
     plt.show()
 
 
-def validate(validloader, test_size, batch, in_size):
+def validate(validloader, test_size, batch, in_size, lr):
     tmp_batch = batch
     total_iterations = math.floor(test_size / batch)
     stopping_val = total_iterations - 100
@@ -222,7 +221,7 @@ def validate(validloader, test_size, batch, in_size):
     enemy_acc = class_accuracy[1]
 
     createResultsSpreadsheet(network_acc=total_accuracy, none_acc=none_acc, enemy_acc=enemy_acc,
-                             batch_size=batch, epoch=epochs, lr=learning_rate)
+                             batch_size=batch, epoch=epochs, lr=lr)
 
     # file = open(f"./results/Results{batch}-{epochs}.txt", 'a')
     # file.write(f"Batch Size: {batch}\n")
@@ -237,7 +236,7 @@ def validate(validloader, test_size, batch, in_size):
 def createResultsSpreadsheet(network_acc, none_acc, enemy_acc, batch_size, epoch, lr):
     with pd.option_context('display.max_rows', None, 'display.max_columns', None):
 
-        results_file = "./results/New Dataset/results.xlsx"
+        results_file = "pytorch/results/New Dataset/Results.xlsx"
 
         new_row = {'Batch Size': batch_size, 'Epochs': epoch, 'Learning Rate': lr,
                                 'Accuracy of Network': network_acc, 'Accuracy of None': none_acc,
@@ -248,12 +247,12 @@ def createResultsSpreadsheet(network_acc, none_acc, enemy_acc, batch_size, epoch
             df = df.append(new_row, ignore_index=True)
 
 
-            df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/results/New Dataset/results.xlsx',
+            df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/Results/New Dataset/Results.xlsx',
                              header=True, index=False)
 
         else:
             new_df = pd.DataFrame(data=new_row)
-            new_df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/results/New Dataset/results.xlsx',
+            new_df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/Results/New Dataset/Results.xlsx',
                              header=True, index=False)
 
 
