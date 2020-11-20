@@ -50,10 +50,10 @@ class Net(nn.Module):
         return x
 
 
-batch_sizes = [3, 4, 5, 6,7, 10, 16, 32, 64]
+batch_sizes = [4, 5, 6, 7, 8, 9, 10]
 
 num_classes = 2
-learning_rates = 0.001
+learning_rate = 0.0009
 momentum = 0.9
 num_print_loss = 1000
 epochs = 1
@@ -195,6 +195,7 @@ def validate(validloader, test_size, batch, in_size):
 
     # total_accuracy = 'Accuracy of the network on the test images: %.5f %% \n' % (100 * correct / total)
     total_accuracy = 100 * correct / total
+    total_accuracy = round(total_accuracy, 2)
 
     # Accuracy of each individual class
     class_correct = list(0. for i in range(num_classes))
@@ -218,18 +219,13 @@ def validate(validloader, test_size, batch, in_size):
     for i in range(num_classes):
         class_accuracy.append(100 * class_correct[i] / class_total[i])
 
-    none_acc = class_accuracy[0]
+    none_acc  = class_accuracy[0]
+    none_acc  = round(none_acc, 2)
     enemy_acc = class_accuracy[1]
+    enemy_acc = round(enemy_acc, 2)
 
     createResultsSpreadsheet(network_acc=total_accuracy, none_acc=none_acc, enemy_acc=enemy_acc,
                              batch_size=batch, epoch=epochs, lr=learning_rate)
-
-    # file = open(f"./results/Results{batch}-{epochs}.txt", 'a')
-    # file.write(f"Batch Size: {batch}\n")
-    # file.write(total_accuracy)
-    # file.write(class_accuracy[0])
-    # file.write(class_accuracy[1])
-    # file.close()
 
     # ---------------------------------------------
 
@@ -237,23 +233,23 @@ def validate(validloader, test_size, batch, in_size):
 def createResultsSpreadsheet(network_acc, none_acc, enemy_acc, batch_size, epoch, lr):
     with pd.option_context('display.max_rows', None, 'display.max_columns', None):
 
-        results_file = "pytorch/results/New Dataset/Results.xlsx"
+        results_file = "./results/New Dataset/results.xlsx"
 
-        new_row = {'Batch Size': batch_size, 'Epochs': epoch, 'Learning Rate': lr,
-                                'Accuracy of Network': network_acc, 'Accuracy of None': none_acc,
-                                'Accuracy of Enemy':enemy_acc}
+        new_row = {'Batch Size': [batch_size], 'Epochs': [epoch], 'Learning Rate': [lr],
+                                'Accuracy of Network': [network_acc], 'Accuracy of None': [none_acc],
+                                'Accuracy of Enemy': [enemy_acc]}
 
         if os.path.isfile(results_file):
             df = pd.read_excel(results_file)
             df = df.append(new_row, ignore_index=True)
 
 
-            df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/Results/New Dataset/Results.xlsx',
+            df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/results/New Dataset/Results.xlsx',
                              header=True, index=False)
 
         else:
             new_df = pd.DataFrame(data=new_row)
-            new_df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/Results/New Dataset/Results.xlsx',
+            new_df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/results/New Dataset/Results.xlsx',
                              header=True, index=False)
 
 
