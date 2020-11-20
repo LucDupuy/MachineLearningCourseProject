@@ -50,13 +50,13 @@ class Net(nn.Module):
         return x
 
 
-batch_sizes = [4, 5, 6, 7, 8, 9, 10]
+batch_sizes = [5]
 
 num_classes = 2
 learning_rate = 0.0009
 momentum = 0.9
 num_print_loss = 1000
-epochs = 1
+epochs = 5
 
 
 def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_images_path, valid_images_path,
@@ -71,16 +71,23 @@ def main(train_spreadsheet_path, train_images_path, test_spreadsheet_path, test_
         train_set = ImportDataset(excel_file=train_spreadsheet_path, dir=train_images_path,
                                   transform=transforms.ToTensor())
         trainloader = DataLoader(dataset=train_set, batch_size=batch_sizes[i], shuffle=True)
-
         valid_set = ImportDataset(excel_file=valid_spreadsheet_path, dir=valid_images_path,
                                   transform=transforms.ToTensor())
         validloader = DataLoader(dataset=valid_set, batch_size=batch_sizes[i], shuffle=True)
+        test_set = ImportDataset(excel_file=test_spreadsheet_path, dir=test_images_path,
+                                 transform=transforms.ToTensor())
+        testloader = DataLoader(dataset=test_set, batch_size=batch_sizes[i], shuffle=True)
 
         print("Training Beginning: \n--------------------------------------")
 
         train(trainloader, train_size=train_set.__len__(), batch=batch_sizes[i], in_size=input_size)
 
-        validate(validloader, test_size=valid_set.__len__(), batch=batch_sizes[i], in_size=input_size)
+        print("Validation Beginning\n--------------------------------------")
+        validate_test(validloader, data_size=valid_set.__len__(), batch=batch_sizes[i], in_size=input_size)
+
+        print("Testing Beginning\n--------------------------------------\n")
+        # Final Testing of Model on New Data
+        validate_test(testloader, data_size=test_set.__len__(), batch=batch_sizes[i], in_size=input_size)
 
 
 
@@ -146,14 +153,14 @@ def imshow(img):
     plt.show()
 
 
-def validate(validloader, test_size, batch, in_size):
+def validate_test(loader, data_size, batch, in_size):
     tmp_batch = batch
-    total_iterations = math.floor(test_size / batch)
+    total_iterations = math.floor(data_size / batch)
     stopping_val = total_iterations - 100
-    print("Validation Beginning\n--------------------------------------\n")
+
 
     # get some random training images
-    dataiter = iter(validloader)
+    dataiter = iter(loader)
 
     images, labels = dataiter.next()  # This is loading the data
     images = images.to(device)  # The loaded data must then be sent to the GPU
@@ -182,7 +189,7 @@ def validate(validloader, test_size, batch, in_size):
     correct = 0
     total = 0
     with torch.no_grad():
-        for i, data in enumerate(validloader):
+        for i, data in enumerate(loader):
             images, labels = data[0].to(device), data[1].to(device)  # Load to GPU
             outputs = net(images).to(device)  # Load to GPU
             _, predicted = torch.max(outputs.data, 1)
@@ -201,7 +208,7 @@ def validate(validloader, test_size, batch, in_size):
     class_correct = list(0. for i in range(num_classes))
     class_total = list(0. for i in range(num_classes))
     with torch.no_grad():
-        for j, data in enumerate(validloader):
+        for j, data in enumerate(loader):
             images, labels = data[0].to(device), data[1].to(device)  # Load to GPU
             outputs = net(images).to(device)  # Load to GPU
             _, predicted = torch.max(outputs, 1)
