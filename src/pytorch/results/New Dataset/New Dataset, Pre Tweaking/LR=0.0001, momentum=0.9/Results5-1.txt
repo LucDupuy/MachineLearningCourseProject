@@ -1,0 +1,4 @@
+Batch Size: 5
+Accuracy of the network on the test images: 77.45318 % 
+Accuracy of  none : 71.73467 %
+Accuracy of enemy : 82.13397 %
