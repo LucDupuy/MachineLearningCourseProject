@@ -240,7 +240,7 @@ def validate_test(loader, data_size, batch, in_size):
 def createResultsSpreadsheet(network_acc, none_acc, enemy_acc, batch_size, epoch, lr):
     with pd.option_context('display.max_rows', None, 'display.max_columns', None):
 
-        results_file = "./results/New Dataset/results.xlsx"
+        results_file = "./results/New Dataset/Final Results/Results.xlsx"
 
         new_row = {'Batch Size': [batch_size], 'Epochs': [epoch], 'Learning Rate': [lr],
                                 'Accuracy of Network': [network_acc], 'Accuracy of None': [none_acc],
@@ -251,12 +251,12 @@ def createResultsSpreadsheet(network_acc, none_acc, enemy_acc, batch_size, epoch
             df = df.append(new_row, ignore_index=True)
 
 
-            df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/results/New Dataset/Results.xlsx',
+            df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/results/New Dataset/Final Results/Results.xlsx',
                              header=True, index=False)
 
         else:
             new_df = pd.DataFrame(data=new_row)
-            new_df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/results/New Dataset/Results.xlsx',
+            new_df.to_excel('C:/Users/Luc/Documents/CPS 803/Main Project/src/pytorch/results/New Dataset/Final Results/Results.xlsx',
                              header=True, index=False)
 
 
