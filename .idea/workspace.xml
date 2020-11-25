@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Final results have been recorded." />
+    <list default="true" id="0c19840b-556b-4183-be1e-7a5bf53d0799" name="Default Changelist" comment="Added a line of clarification to the results spreadsheet">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pytorch/results/New Dataset/Results.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pytorch/results/New Dataset/Results.xlsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -395,7 +398,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605906227364</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Added a line of clarification to the results spreadsheet">
+      <created>1605906363042</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1605906363042</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -422,7 +432,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Added a note at the bottom of main regarding things talked about with TA on Friday 23" />
     <MESSAGE value="Added a note at the bottom of main regarding things talked about with TA on Friday 23, as well as a text document of things to do" />
     <MESSAGE value="gpuTest is just me playing around with running code on GPU" />
     <MESSAGE value="Got Tensorflow to train a model on the GPU. Added a test image and folder, as well as moved notes to a separate folder.&#10;&#10;Organized the main file into functions.&#10;&#10;Don't have the predict function working yet." />
@@ -447,7 +456,8 @@
     <MESSAGE value="Got rid of the loop for learning rates as it wasn't working properly" />
     <MESSAGE value="Have various validation results saved. Could pick parameters from one of those as the final model to test on." />
     <MESSAGE value="Final results have been recorded." />
-    <option name="LAST_COMMIT_MESSAGE" value="Final results have been recorded." />
+    <MESSAGE value="Added a line of clarification to the results spreadsheet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a line of clarification to the results spreadsheet" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2974" y="384" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602611655917">
@@ -548,13 +558,13 @@
     </state>
     <state x="615" y="222" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605755932837" />
     <state x="3021" y="374" key="SettingsEditor/2560.209.1920.1040/0.0.2560.1400@2560.209.1920.1040" timestamp="1604286782948" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1605906228645">
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2" timestamp="1605906364465">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="572" y="312" key="Vcs.Push.Dialog.v2/0.0.1680.1010/-1920.-34.1920.1040@0.0.1680.1010" timestamp="1604438529823" />
     <state x="654" y="321" key="Vcs.Push.Dialog.v2/1920.34.1680.1010/0.0.1920.1040@0.0.1920.1040" timestamp="1605293451298" />
     <state x="2492" y="346" key="Vcs.Push.Dialog.v2/1920.34.1680.1010/0.0.1920.1040@1920.34.1680.1010" timestamp="1605060789322" />
-    <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605906228645" />
+    <state x="872" y="433" key="Vcs.Push.Dialog.v2/2560.209.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605906364465" />
     <state x="886" y="310" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1604067881924">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
