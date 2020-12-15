@@ -1,8 +1,8 @@
 #!/bin/bash
-mkdir ranenemy
-mkdir rannone
+mkdir testenemy
+mkdir testnone
 
-echo "Building randomized file list"
+echo "Building split file list"
 
 #ls -rt -d -1 dataset2/enemy/*
 ENEMY=`ls -rt -d -1 enemy/*`
@@ -16,8 +16,8 @@ i=1
 
 for LINE in $RANENEMY
 do
-	echo "Copying random ENEMY image $i"
-	cp "${LINE}" ranenemy/
+	echo "Moving random ENEMY image $i"
+	mv "${LINE}" testenemy/
 	((i++))
 done
 
@@ -25,8 +25,8 @@ i=1
 
 for LINE2 in $RANNONE
 do
-	echo "Copying random NONE image $i"
-	cp "${LINE2}" rannone/
+	echo "Moving random NONE image $i"
+	mv "${LINE2}" testnone/
 	((i++))
 done
 
